@@ -3,7 +3,7 @@
 	"id": "custom_default_world_preset",
 	"version": "${version}",
 	"name": "Custom Default World Preset",
-	"description": "This mod allows changing the default world preset",
+	"description": "This simple fabric mod allows you to change the default world preset.",
 	"authors": [
 		"MattiDragon"
 	],
