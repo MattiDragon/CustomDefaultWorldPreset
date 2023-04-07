@@ -1,0 +1,31 @@
+{
+	"schemaVersion": 1,
+	"id": "custom_default_world_preset",
+	"version": "${version}",
+	"name": "Custom Default World Preset",
+	"description": "This mod allows changing the default world preset",
+	"authors": [
+		"MattiDragon"
+	],
+	"contact": {
+		"homepage": "https://modrinth.com/mod/custom_default_world_preset",
+		"sources": "https://github.com/MattiDragon/CustomDefaultWorldPreset"
+	},
+	"license": "MIT",
+	"icon": "assets/custom_default_world_preset/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"io.github.mattidragon.customdefaultworldpreset.CustomDefaultWorldTypes"
+		]
+	},
+	"mixins": [
+		"custom_default_world_preset.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.14.19",
+		"minecraft": ">=1.19 <1.19.4",
+		"java": ">=17",
+		"fabric-api": "*"
+	}
+}

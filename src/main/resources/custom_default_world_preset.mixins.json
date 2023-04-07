@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "package": "io.github.mattidragon.customdefaultworldpreset.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "ServerPropertiesHandlerMixin",
+    "ServerPropertiesHandlerMixin$WorldGenPropertiesMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "client": [
+    "CreateWorldScreenMixin"
+	]
+}
