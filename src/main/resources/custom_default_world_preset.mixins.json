@@ -4,12 +4,13 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "ServerPropertiesHandlerMixin",
-    "ServerPropertiesHandlerMixin$WorldGenPropertiesMixin"
+    "ServerPropertiesHandlerMixin$WorldGenPropertiesMixin",
+    "WorldPresetsMixin"
   ],
   "injectors": {
     "defaultRequire": 1
   },
   "client": [
     "CreateWorldScreenMixin"
-	]
+  ]
 }
