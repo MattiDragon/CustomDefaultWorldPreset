@@ -3,10 +3,10 @@ package io.github.mattidragon.customdefaultworldpreset;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.loader.api.FabricLoader;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.InvalidIdentifierException;
+import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.gen.WorldPreset;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -35,7 +35,7 @@ public class CustomDefaultWorldTypes implements ModInitializer {
 	public static RegistryKey<WorldPreset> getConfig() {
 		try {
 			var key = Files.readString(CONFIG_PATH);
-			return RegistryKey.of(RegistryKeys.WORLD_PRESET, new Identifier(key.trim()));
+			return RegistryKey.of(Registry.WORLD_PRESET_KEY, new Identifier(key.trim()));
 		} catch (IOException | InvalidIdentifierException e) {
 			throw new RuntimeException("Failed to read config for custom default world types", e);
 		}
