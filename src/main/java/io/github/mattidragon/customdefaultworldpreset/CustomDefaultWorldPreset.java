@@ -1,7 +1,6 @@
 package io.github.mattidragon.customdefaultworldpreset;
 
 import net.fabricmc.api.ModInitializer;
-
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
@@ -17,27 +16,27 @@ import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 
 public class CustomDefaultWorldPreset implements ModInitializer {
-	public static final String MOD_ID = "custom_default_world_preset";
-	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
-	private static final Path CONFIG_PATH = FabricLoader.getInstance().getConfigDir().resolve("default_world_preset.txt");
+    public static final String MOD_ID = "custom_default_world_preset";
+    public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+    private static final Path CONFIG_PATH = FabricLoader.getInstance().getConfigDir().resolve("default_world_preset.txt");
 
-	@Override
-	public void onInitialize() {
-		if (!Files.exists(CONFIG_PATH)) {
-			try {
-				Files.writeString(CONFIG_PATH, "minecraft:normal", StandardOpenOption.CREATE_NEW);
-			} catch (IOException e) {
-				throw new RuntimeException("Failed to write default config for custom default world types", e);
-			}
-		}
-	}
+    @Override
+    public void onInitialize() {
+        if (!Files.exists(CONFIG_PATH)) {
+            try {
+                Files.writeString(CONFIG_PATH, "minecraft:normal", StandardOpenOption.CREATE_NEW);
+            } catch (IOException e) {
+                throw new RuntimeException("Failed to write default config for custom default world types", e);
+            }
+        }
+    }
 
-	public static RegistryKey<WorldPreset> getConfig() {
-		try {
-			var key = Files.readString(CONFIG_PATH);
-			return RegistryKey.of(RegistryKeys.WORLD_PRESET, Identifier.of(key.trim()));
-		} catch (IOException | InvalidIdentifierException e) {
-			throw new RuntimeException("Failed to read config for custom default world types", e);
-		}
-	}
+    public static RegistryKey<WorldPreset> getConfig() {
+        try {
+            var key = Files.readString(CONFIG_PATH);
+            return RegistryKey.of(RegistryKeys.WORLD_PRESET, Identifier.of(key.trim()));
+        } catch (IOException | InvalidIdentifierException e) {
+            throw new RuntimeException("Failed to read config for custom default world types", e);
+        }
+    }
 }
