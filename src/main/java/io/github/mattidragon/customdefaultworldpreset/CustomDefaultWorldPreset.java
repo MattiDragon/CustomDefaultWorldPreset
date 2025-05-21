@@ -16,8 +16,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 
-public class CustomDefaultWorldTypes implements ModInitializer {
-	public static final String MOD_ID = "custom_default_world_types";
+public class CustomDefaultWorldPreset implements ModInitializer {
+	public static final String MOD_ID = "custom_default_world_preset";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 	private static final Path CONFIG_PATH = FabricLoader.getInstance().getConfigDir().resolve("default_world_preset.txt");
 

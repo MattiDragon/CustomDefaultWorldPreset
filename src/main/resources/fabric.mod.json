@@ -16,16 +16,15 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"io.github.mattidragon.customdefaultworldpreset.CustomDefaultWorldTypes"
+			"io.github.mattidragon.customdefaultworldpreset.CustomDefaultWorldPreset"
 		]
 	},
 	"mixins": [
 		"custom_default_world_preset.mixins.json"
 	],
 	"depends": {
-		"fabricloader": ">=0.14.19",
-		"minecraft": ">=1.19.3",
-		"java": ">=17",
+		"fabricloader": ">=0.16.14",
+		"minecraft": ">=1.21.4",
 		"fabric-api": "*"
 	}
 }

@@ -1,6 +1,6 @@
 package io.github.mattidragon.customdefaultworldpreset.mixin;
 
-import io.github.mattidragon.customdefaultworldpreset.CustomDefaultWorldTypes;
+import io.github.mattidragon.customdefaultworldpreset.CustomDefaultWorldPreset;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.server.dedicated.ServerPropertiesHandler;
 import net.minecraft.world.gen.WorldPreset;
@@ -14,7 +14,7 @@ public class ServerPropertiesHandlerMixin {
     @Redirect(method = "<init>",
             at = @At(value = "FIELD", opcode = Opcodes.GETSTATIC, target = "Lnet/minecraft/world/gen/WorldPresets;DEFAULT:Lnet/minecraft/registry/RegistryKey;"))
     private RegistryKey<WorldPreset> defaultWorldTypes$replaceDefault() {
-        return CustomDefaultWorldTypes.getConfig();
+        return CustomDefaultWorldPreset.getConfig();
     }
 
     // Also override the fallback when invalid for consistency
@@ -24,7 +24,7 @@ public class ServerPropertiesHandlerMixin {
         @Redirect(method = "createDimensionsRegistryHolder",
                 at = @At(value = "FIELD", opcode = Opcodes.GETSTATIC, target = "Lnet/minecraft/world/gen/WorldPresets;DEFAULT:Lnet/minecraft/registry/RegistryKey;"))
         private RegistryKey<WorldPreset> defaultWorldTypes$replaceDefault() {
-            return CustomDefaultWorldTypes.getConfig();
+            return CustomDefaultWorldPreset.getConfig();
         }
     }
 }

@@ -1,6 +1,6 @@
 package io.github.mattidragon.customdefaultworldpreset.mixin;
 
-import io.github.mattidragon.customdefaultworldpreset.CustomDefaultWorldTypes;
+import io.github.mattidragon.customdefaultworldpreset.CustomDefaultWorldPreset;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.world.gen.WorldPreset;
 import net.minecraft.world.gen.WorldPresets;
@@ -15,6 +15,6 @@ public class WorldPresetsMixin {
             require = 2,
             at = @At(value = "FIELD", opcode = Opcodes.GETSTATIC, target = "Lnet/minecraft/world/gen/WorldPresets;DEFAULT:Lnet/minecraft/registry/RegistryKey;"))
     private static RegistryKey<WorldPreset> defaultWorldTypes$replaceDefault() {
-        return CustomDefaultWorldTypes.getConfig();
+        return CustomDefaultWorldPreset.getConfig();
     }
 }
