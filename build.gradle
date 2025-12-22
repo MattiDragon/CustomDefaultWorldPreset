@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '1.10-SNAPSHOT'
+    id 'fabric-loom' version '1.14-SNAPSHOT'
     id 'maven-publish'
 }
 
@@ -32,7 +32,6 @@ tasks.withType(JavaCompile).configureEach {
 }
 
 java {
-    archivesBaseName = project.archives_base_name
     withSourcesJar()
 }
 
