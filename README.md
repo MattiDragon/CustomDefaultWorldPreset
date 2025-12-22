@@ -6,5 +6,8 @@ To configure the default world preset you edit the `default_world_preset.txt` fi
 It should contain the id of the desired default preset. The `minecraft:` prefix may be omitted.
 The configuration is read each time the key is used, so changes should show up be reopening the world creation screen.
 
+To find the id of a world preset, you can add `-DcustomDefaultWorldPresets.dumpPresets=true` to your JVM options.
+With this option enabled, whenever you open the Create World screen in singleplayer, all available presets will be listed in the log.
+
 This mod also changes the default on dedicated servers. You need to ensure that the preset is loaded in the initial datapacks for this to work.
 Most global datapack mods should work for this.
