@@ -93,7 +93,7 @@ publishMods {
         accessToken.set(providers.environmentVariable("MODRINTH_TOKEN"))
 
         requires("fabric-api")
-        minecraftVersions.add(providers.environmentVariable("MODRINTH_MC_VERSION").orElse(mcVersion))
+        minecraftVersions.add(providers.environmentVariable("MODRINTH_MC_VERSION").filter { it.isNotBlank() }.orElse(mcVersion))
     }
 
     curseforge {
@@ -101,7 +101,7 @@ publishMods {
         accessToken.set(providers.environmentVariable("CURSEFORGE_TOKEN"))
 
         requires("fabric-api")
-        minecraftVersions.add(providers.environmentVariable("CURSEFORGE_MC_VERSION").orElse(mcVersion))
+        minecraftVersions.add(providers.environmentVariable("CURSEFORGE_MC_VERSION").filter { it.isNotBlank() }.orElse(mcVersion))
     }
 
     github {
