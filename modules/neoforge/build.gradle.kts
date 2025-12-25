@@ -7,7 +7,7 @@ version = rootProject.version
 group = rootProject.group
 base.archivesName = rootProject.base.archivesName.map { "$it-neoforge" }
 
-val commonProject by configurations.creating {
+val commonProject: Configuration by configurations.creating {
     isTransitive = false
 }
 configurations.implementation {
@@ -35,9 +35,31 @@ neoForge {
 
     mods.register("custom_default_world_preset") {
         sourceSet(sourceSets.main.get())
+        // I don't understand why this works, but it does
+        sourceSet(project(":common").sourceSets["main"])
     }
 }
 
 dependencies {
     commonProject(project(":common"))
+}
+
+tasks.withType<JavaCompile>().configureEach {
+    options.release.set(25)
+}
+
+java {
+    withSourcesJar()
+}
+
+tasks.processResources {
+    val properties = mapOf(
+        "version" to project.version,
+        "neo_version" to libs.versions.neoforge.get()
+    )
+
+    inputs.properties(properties)
+    filesMatching("META-INF/neoforge.mods.toml") {
+        expand(properties)
+    }
 }

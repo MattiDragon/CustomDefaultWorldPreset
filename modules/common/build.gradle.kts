@@ -20,9 +20,3 @@ tasks.withType<JavaCompile>().configureEach {
 java {
     withSourcesJar()
 }
-
-tasks.jar {
-    from("LICENSE") {
-        rename { "${it}_${base.archivesName}" }
-    }
-}

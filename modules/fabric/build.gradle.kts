@@ -6,7 +6,7 @@ version = rootProject.version
 group = rootProject.group
 base.archivesName = rootProject.base.archivesName.map { "$it-fabric" }
 
-val commonProject by configurations.creating {
+val commonProject: Configuration by configurations.creating {
     isTransitive = false
 }
 configurations.implementation {
@@ -56,10 +56,4 @@ tasks.withType<JavaCompile>().configureEach {
 
 java {
     withSourcesJar()
-}
-
-tasks.jar {
-    from("LICENSE") {
-        rename { "${it}_${base.archivesName}" }
-    }
 }

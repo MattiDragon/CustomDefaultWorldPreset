@@ -27,7 +27,6 @@ val manifestJar: Configuration by configurations.creating {
     isCanBeResolved = true
 }
 
-
 dependencies {
     moduleJars(project(":common"))
     moduleJars(project(":fabric"))
@@ -48,6 +47,8 @@ val mergeJar by tasks.registering(Zip::class) {
     from(zipTree(manifestJar.resolve().single())) {
         include("META-INF/MANIFEST.MF")
     }
+
+    from("LICENSE")
 }
 
 val mergeSourcesJar by tasks.registering(Zip::class) {
@@ -60,6 +61,8 @@ val mergeSourcesJar by tasks.registering(Zip::class) {
     }
 
     exclude("META-INF/MANIFEST.MF")
+
+    from("LICENSE")
 }
 
 tasks.build {
