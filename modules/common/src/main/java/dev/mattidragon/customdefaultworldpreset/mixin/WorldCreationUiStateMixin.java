@@ -1,7 +1,7 @@
-package io.github.mattidragon.customdefaultworldpreset.mixin;
+package dev.mattidragon.customdefaultworldpreset.mixin;
 
 import com.llamalad7.mixinextras.sugar.Local;
-import io.github.mattidragon.customdefaultworldpreset.CustomDefaultWorldPreset;
+import dev.mattidragon.customdefaultworldpreset.CustomDefaultWorldPreset;
 import net.minecraft.client.gui.screens.worldselection.WorldCreationUiState;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;

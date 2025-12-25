@@ -1,6 +1,6 @@
-package io.github.mattidragon.customdefaultworldpreset.mixin;
+package dev.mattidragon.customdefaultworldpreset.mixin;
 
-import io.github.mattidragon.customdefaultworldpreset.CustomDefaultWorldPreset;
+import dev.mattidragon.customdefaultworldpreset.CustomDefaultWorldPreset;
 import net.minecraft.client.gui.screens.worldselection.CreateWorldScreen;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.levelgen.presets.WorldPreset;

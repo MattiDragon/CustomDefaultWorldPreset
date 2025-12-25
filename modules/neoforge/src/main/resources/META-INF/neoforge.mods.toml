@@ -1,0 +1,22 @@
+license = "MIT"
+
+[[mods]]
+modId = "custom_default_world_preset"
+version = "${version}"
+displayName = "Custom Default World Preset"
+description = "This simple mod allows you to change the default world preset."
+displayURL = "https://modrinth.com/mod/custom-default-world-preset"
+authors = "MattiDragon"
+
+[[mixins]]
+config = "custom_default_world_preset.mixins.json"
+
+[[dependencies.custom_default_world_preset]]
+modId="neoforge"
+type="required"
+versionRange="[${neo_version},)"
+
+[[dependencies.custom_default_world_preset]]
+modId="minecraft"
+type="required"
+versionRange="[26.1-snapshot-1,)"

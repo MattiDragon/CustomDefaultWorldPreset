@@ -3,7 +3,7 @@
 	"id": "custom_default_world_preset",
 	"version": "${version}",
 	"name": "Custom Default World Preset",
-	"description": "This simple fabric mod allows you to change the default world preset.",
+	"description": "This simple mod allows you to change the default world preset.",
 	"authors": [
 		"MattiDragon"
 	],
@@ -16,15 +16,15 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"io.github.mattidragon.customdefaultworldpreset.CustomDefaultWorldPreset"
+			"dev.mattidragon.customdefaultworldpreset.FabricInit"
 		]
 	},
 	"mixins": [
 		"custom_default_world_preset.mixins.json"
 	],
 	"depends": {
-		"fabricloader": ">=0.18.3",
-		"minecraft": ">=1.21.11",
-		"fabric-api": "*"
+		"fabricloader": ">=${loader_version}",
+		"minecraft": ">=26.1-",
+		"fabric-api": ">=${api_version}"
 	}
 }
