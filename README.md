@@ -1,5 +1,5 @@
 # Custom Default World Preset
-This simple fabric mod allows you to change the default world preset. 
+This simple mod allows you to change the default world preset. 
 This mod is intended for modpack developers who want a custom world without replacing the default and without making users change the setting.
 
 To configure the default world preset you edit the `default_world_preset.txt` file in your config directory.
