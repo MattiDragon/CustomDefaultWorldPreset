@@ -8,6 +8,14 @@ on:
         required: true
         type: choice
         options: ["stable", "beta", "alpha"]
+      curseforge-mc-version:
+        description: The minecraft version on curseforge
+        required: false
+        type: string
+      modrinth-mc-version:
+        description: The minecraft version on modrinth
+        required: false
+        type: string
 
 jobs:
   publish:
@@ -32,3 +40,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           RELEASE_TYPE: ${{ inputs.version-type }}
           GITHUB_BRANCH: ${{ github.ref }}
+          CURSEFORGE_MC_VERSION: ${{ inputs.curseforge-mc-version }}
+          MODRINTH_MC_VERSION: ${{ inputs.modrinth-mc-version }}
