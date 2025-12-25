@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '1.14-SNAPSHOT'
+    id 'net.fabricmc.fabric-loom' version '1.14-SNAPSHOT'
     id 'maven-publish'
 }
 
@@ -9,10 +9,9 @@ base.archivesName = project.archives_base_name
 
 dependencies {
     minecraft "com.mojang:minecraft:$minecraft_version"
-    mappings loom.officialMojangMappings()
-    modImplementation "net.fabricmc:fabric-loader:$loader_version"
+    implementation "net.fabricmc:fabric-loader:$loader_version"
 
-    modImplementation "net.fabricmc.fabric-api:fabric-api:$fabric_version"
+    implementation "net.fabricmc.fabric-api:fabric-api:$fabric_version"
 }
 
 loom.runs.server {
@@ -28,7 +27,7 @@ processResources {
 }
 
 tasks.withType(JavaCompile).configureEach {
-    it.options.release.set 21
+    it.options.release.set 25
 }
 
 java {
