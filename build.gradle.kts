@@ -75,12 +75,13 @@ tasks.build {
 
 publishMods {
     val mcVersion = libs.versions.minecraft.get()
+    val modVersion = properties["mod_version"] as String
 
     file = mergeJar.flatMap { it.archiveFile }
     additionalFiles.from(mergeSourcesJar)
 
-    displayName = "v$version [$mcVersion]"
-    changelog = providers.fileContents(layout.projectDirectory.file("changelog/$version+$mcVersion")).asText
+    displayName = "v$modVersion [$mcVersion]"
+    changelog = providers.fileContents(layout.projectDirectory.file("changelog/$modVersion+$mcVersion.md")).asText
 
     type.set(providers.environmentVariable("RELEASE_TYPE").map { me.modmuss50.mpp.ReleaseType.of(it) })
     modLoaders.addAll("fabric", "neoforge")
