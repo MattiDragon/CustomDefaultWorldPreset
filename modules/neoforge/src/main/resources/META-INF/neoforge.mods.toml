@@ -7,6 +7,8 @@ displayName = "Custom Default World Preset"
 description = "This simple mod allows you to change the default world preset."
 displayURL = "https://modrinth.com/mod/custom-default-world-preset"
 authors = "MattiDragon"
+logoFile = "assets/custom_default_world_preset/icon.png"
+logoBlur = false
 
 [[mixins]]
 config = "custom_default_world_preset.mixins.json"

@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.fabric.loom) apply false
+    alias(libs.plugins.mod.publish)
     id("maven-publish")
     base
 }
@@ -37,6 +38,7 @@ dependencies {
 val mergeJar by tasks.registering(Zip::class) {
     dependsOn(moduleJars)
     archiveExtension = "jar"
+    destinationDirectory = layout.buildDirectory.dir("libs")
 
     moduleJars.resolve().forEach {
         from(zipTree(it)) {
@@ -55,6 +57,7 @@ val mergeSourcesJar by tasks.registering(Zip::class) {
     dependsOn(moduleSourceJars)
     archiveExtension = "jar"
     archiveClassifier = "sources"
+    destinationDirectory = layout.buildDirectory.dir("libs")
 
     moduleSourceJars.resolve().forEach {
         from(zipTree(it))
@@ -68,6 +71,45 @@ val mergeSourcesJar by tasks.registering(Zip::class) {
 tasks.build {
     dependsOn(mergeJar)
     dependsOn(mergeSourcesJar)
+}
+
+publishMods {
+    val mcVersion = libs.versions.minecraft.get()
+
+    file = mergeJar.flatMap { it.archiveFile }
+    additionalFiles.from(mergeSourcesJar)
+
+    displayName = "v$version [$mcVersion]"
+    changelog = providers.fileContents(layout.projectDirectory.file("changelog/$version+$mcVersion")).asText
+
+    type.set(providers.environmentVariable("RELEASE_TYPE").map { me.modmuss50.mpp.ReleaseType.of(it) })
+    modLoaders.addAll("fabric", "neoforge")
+
+    dryRun = providers.gradleProperty("publish_dry_run").isPresent
+
+    modrinth {
+        projectId = "1BduonQp"
+        accessToken.set(providers.environmentVariable("MODRINTH_TOKEN"))
+
+        requires("fabric-api")
+        minecraftVersions.add(mcVersion)
+    }
+
+    curseforge {
+        projectId = "847463"
+        accessToken.set(providers.environmentVariable("CURSEFORGE_TOKEN"))
+
+        requires("fabric-api")
+        minecraftVersions.add(mcVersion)
+    }
+
+    github {
+        repository = "MattiDragon/CustomDefaultWorldPreset"
+        accessToken.set(providers.environmentVariable("GITHUB_TOKEN"))
+
+        commitish.set(providers.environmentVariable("GITHUB_BRANCH"))
+        tagName.set(version.map { it.replace('+', '-') })
+    }
 }
 
 publishing {

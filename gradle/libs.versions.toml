@@ -1,5 +1,6 @@
 [versions]
 minecraft = "26.1-snapshot-1"
+mod-publish-plugin = "1.1.0"
 
 mixin = "0.16.5+mixin.0.8.7"
 mixin-extras = "0.5.0"
@@ -23,3 +24,4 @@ fabric-api = { module = "net.fabricmc.fabric-api:fabric-api", version.ref = "fab
 [plugins]
 fabric-loom = { id = "net.fabricmc.fabric-loom", version.ref = "fabric-loom" }
 neoforge-mdg = { id = "net.neoforged.moddev", version.ref = "mdg" }
+mod-publish = { id = "me.modmuss50.mod-publish-plugin", version.ref = "mod-publish-plugin" }
